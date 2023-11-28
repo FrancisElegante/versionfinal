@@ -69,5 +69,9 @@ export class UserService {
       const userRef = collection(this.firestore, 'usuarios');
       return collectionData(userRef, { idField: 'id' }) as Observable<User[]>;
     }
-    
+
+    stateUser(){
+      return this.auth.onAuthStateChanged
+    }
+
 }

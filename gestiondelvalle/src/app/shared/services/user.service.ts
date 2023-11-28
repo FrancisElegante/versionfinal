@@ -16,4 +16,10 @@ import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, setDoc, 
 export class UserService {
 
   constructor(private auth: Auth, private firestore: Firestore) { }
+
+  register(datos: User) {
+    return createUserWithEmailAndPassword(this.auth, datos.correo, datos.contraseña);
+    }
+
+    
 }

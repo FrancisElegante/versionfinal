@@ -4,28 +4,22 @@ import { ContrasenaComponent } from './pages/contrasena/contrasena.component';
 import { DatosComponent } from './pages/datos/datos.component';
 import { DireccionComponent } from './pages/direccion/direccion.component';
 import { Routes, RouterModule } from '@angular/router';
+import { UsuarioComponent } from './pages/usuario/usuario.component';
+import { UsuarioRoutingModule } from './usuario-routing.module';
 
-const routes: Routes = [
-  {
-    path: '',
-    children: [
-      {path: 'contrasena', component: ContrasenaComponent},
-      {path: 'datos', component: DatosComponent},
-      {path: 'direccion', component: DireccionComponent},
 
-    ]
-  }
-
-]
 
 @NgModule({
   declarations: [
     ContrasenaComponent,
     DatosComponent,
-    DireccionComponent
+    DireccionComponent,
+    UsuarioComponent
   ],
   imports: [
-    RouterModule.forChild( routes )
+    CommonModule,
+    UsuarioRoutingModule
+    
   ]
 })
 export class MainModule { }

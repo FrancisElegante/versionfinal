@@ -22,4 +22,4 @@ import { UsuarioRoutingModule } from './usuario-routing.module';
     
   ]
 })
-export class MainModule { }
+export class UsuarioModule { }

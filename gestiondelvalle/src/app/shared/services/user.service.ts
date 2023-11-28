@@ -64,4 +64,10 @@ export class UserService {
       console.log("Error al cerrar la sesión:", error);
       });
     }
+
+    getUser(): Observable<User[]> {
+      const userRef = collection(this.firestore, 'usuarios');
+      return collectionData(userRef, { idField: 'id' }) as Observable<User[]>;
+    }
+    
 }

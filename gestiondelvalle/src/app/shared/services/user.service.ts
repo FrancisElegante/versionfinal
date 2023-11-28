@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
 import { User } from "../../models/user.interface";
 import { Observable } from 'rxjs';
-
+import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, setDoc, getDoc, DocumentData, DocumentSnapshot,   query,
+  updateDoc,
+  where, } from '@angular/fire/firestore';
+  import { map } from 'rxjs/operators';
+   
 
 @Injectable({
   providedIn: 'root'

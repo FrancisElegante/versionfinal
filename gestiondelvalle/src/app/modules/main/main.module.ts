@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './pages/main/main.component';
+import { ContrasenaComponent } from './pages/contrasena/contrasena.component';
+import { DatosComponent } from './pages/datos/datos.component';
+import { DireccionComponent } from './pages/direccion/direccion.component';
 
 
 
 @NgModule({
   declarations: [
-    MainComponent
+    MainComponent,
+    ContrasenaComponent,
+    DatosComponent,
+    DireccionComponent
   ],
   imports: [
     CommonModule

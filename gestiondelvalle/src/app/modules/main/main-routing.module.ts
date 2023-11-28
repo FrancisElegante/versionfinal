@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { CarritoComponent } from './pages/carrito/carrito.component';
-import { MainComponent } from '../usuario/pages/usuario/main.component';
 import { ProductoseleccionadoComponent } from './pages/productoseleccionado/productoseleccionado.component';
+import { MainComponent } from './pages/main/main.component';
 
 const routes: Routes = [
   {

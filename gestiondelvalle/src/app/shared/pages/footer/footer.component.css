@@ -14,3 +14,16 @@
 ul {
 	list-style: none;
 }
+
+/* Estilos generales para el pie de página */
+.footer {
+	padding: 70px 0;
+    background-color: #776b5d;
+    
+    background-attachment: fixed;
+    background-size: cover;    
+}
+
+.background{
+    opacity: 60%;
+}

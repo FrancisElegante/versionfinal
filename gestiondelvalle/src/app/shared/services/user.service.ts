@@ -57,6 +57,11 @@ export class UserService {
 
   logout() {
     return signOut(this.auth)
-
+    .then(() => {
+      console.log("Sesión cerrada correctamente");
+      })
+      .catch((error) => {
+      console.log("Error al cerrar la sesión:", error);
+      });
     }
 }

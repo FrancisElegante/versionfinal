@@ -47,5 +47,7 @@ export class UserService {
     return setDoc(datosRef, { ...datos, uid });
   }
 
-  
+  login({ email, password }: any) {
+    return signInWithEmailAndPassword(this.auth, email, password);
+    }
 }

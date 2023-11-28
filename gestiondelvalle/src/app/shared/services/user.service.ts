@@ -7,6 +7,7 @@ import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, setDoc, 
   where, } from '@angular/fire/firestore';
   import { map } from 'rxjs/operators';
   import { from } from 'rxjs';
+  import { getDocs } from '@firebase/firestore';
 
 
 @Injectable({
@@ -14,5 +15,5 @@ import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, setDoc, 
 })
 export class UserService {
 
-  constructor() { }
+  constructor(private auth: Auth, private firestore: Firestore) { }
 }

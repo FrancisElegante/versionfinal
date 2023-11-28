@@ -9,6 +9,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { getMessaging, provideMessaging } from '@angular/fire/messaging';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import { environment } from './enviorments/enviorments';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    provideFirebaseApp(() => initializeApp({"projectId":"prototipo-1315d","appId":"1:693325482804:web:f76329ba76b0a2e2b33361","storageBucket":"prototipo-1315d.appspot.com","locationId":"us-central","apiKey":"AIzaSyB2D1Xf4RB-dkF1_HdImRmdhlqB2jpokq4","authDomain":"prototipo-1315d.firebaseapp.com","messagingSenderId":"693325482804"})),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideDatabase(() => getDatabase()),

@@ -6,7 +6,8 @@ import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, setDoc, 
   updateDoc,
   where, } from '@angular/fire/firestore';
   import { map } from 'rxjs/operators';
-   
+  import { from } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'

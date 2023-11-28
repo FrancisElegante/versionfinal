@@ -74,4 +74,17 @@ export class UserService {
       return this.auth.onAuthStateChanged
     }
 
+    isLoggedIn(): Observable<boolean> {
+      return new Observable<boolean>(observer => {
+        this.auth.onAuthStateChanged(user => {
+          if (user) {
+            observer.next(true); // Usuario está logueado
+          } else {
+            observer.next(false); // Usuario no está logueado
+          }
+          observer.complete();
+        });
+      });
+    }
+
 }

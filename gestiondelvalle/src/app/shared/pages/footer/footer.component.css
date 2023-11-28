@@ -3,3 +3,14 @@
 	max-width: 1170px;
 	margin: auto;
 }
+
+/* Establece las propiedades de las filas (elementos flexibles) */
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+/* Quita los puntos de lista en las listas desordenadas */
+ul {
+	list-style: none;
+}

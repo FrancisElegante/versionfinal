@@ -18,6 +18,10 @@ const routes: Routes = [
     path:'administrador',
     loadChildren:()=> import('./modules/administrador/administrador.module').then(m=>m.AdministradorModule)
   },
+  {
+    path:'pages',
+    loadChildren:()=> import('./shared/shared.module').then(m=>m.SharedModule)
+  },
 ];
 
 @NgModule({

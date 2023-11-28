@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { ContrasenaComponent } from './pages/contrasena/contrasena.component';
 import { DatosComponent } from './pages/datos/datos.component';
 import { DireccionComponent } from './pages/direccion/direccion.component';

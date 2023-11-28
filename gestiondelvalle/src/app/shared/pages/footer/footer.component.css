@@ -106,3 +106,11 @@ ul {
     margin-bottom: 30px;
   }
 }
+
+/* Estilos responsivos para pantallas aún más pequeñas (max-width: 574px) */
+@media (max-width: 574px) {
+    .footer-col {
+      width: 100%;
+    }
+  }
+  

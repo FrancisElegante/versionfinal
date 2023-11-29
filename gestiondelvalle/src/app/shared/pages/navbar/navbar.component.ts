@@ -28,5 +28,24 @@ export class NavbarComponent implements OnInit{
 
   ngOnInit(): void {
   }
-  
+
+  onSubmit(): void {
+    this.userService.register(this.formReg.value)
+      .then(response => {
+        console.log(response);
+        console.log("Éxito al crear usuario");
+        const uid = response.user.uid;
+        this.userService.guardarDatos(uid, this.formReg.value)
+          .then(() => {
+            console.log("Datos guardados en Firestore");
+          })
+          .catch(error => {
+            console.log("Error al guardar los datos en Firestore:", error);
+          });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
 }

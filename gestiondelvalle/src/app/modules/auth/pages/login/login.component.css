@@ -57,4 +57,7 @@ body, html {
   button {
     background-color: #1a1a1a;
     color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
   }

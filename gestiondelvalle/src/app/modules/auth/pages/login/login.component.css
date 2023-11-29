@@ -60,4 +60,8 @@ body, html {
     border: none;
     border-radius: 5px;
     padding: 10px;
+    margin-top: 10px;
+    box-shadow: 0 0 20px rgba(17, 57, 165, 0.5);
+    transition: box-shadow 0.3s ease-in-out;
+    margin-top: 50px;
   }

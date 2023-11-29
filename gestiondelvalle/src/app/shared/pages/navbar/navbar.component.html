@@ -4,6 +4,17 @@
         <div class="logo">
           <a href="#">GDV</a>
         </div>
-
+        <ul>
+            <li><a routerLink="/main" class="nav-link" href="#">Mercado</a></li>
+            <li *ngIf="login && (rol === 'comprador' || rol === 'admin')">
+              <a routerLink="/usuario" class="nav-link" href="#">Mi Usuario</a>
+            </li>
+            <li *ngIf="login && (rol === 'comprador' || rol === 'admin')">
+              <a routerLink="/webcarrito" class="nav-link" href="#">Carrito</a>
+            </li>
+            <li *ngIf="login && rol === 'admin'">
+              <a routerLink="/administracion" class="nav-link" href="#">Gestion</a>
+            </li>
+          </ul>
 </body>
   

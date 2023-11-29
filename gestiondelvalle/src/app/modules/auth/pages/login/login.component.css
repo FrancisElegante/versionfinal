@@ -76,3 +76,7 @@ body, html {
   button:focus {
     outline: none;
   }
+
+  button:active {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  }

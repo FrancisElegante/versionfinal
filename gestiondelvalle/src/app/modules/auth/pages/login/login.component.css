@@ -84,3 +84,8 @@ body, html {
   button:hover span {
     animation: anim-grow 0.3s forwards;
   }
+
+  button:hover {
+    box-shadow: 0 0 40px rgba(1, 27, 255, 0.8);
+    animation: anim-grow-text 0.3s forwards;
+  }

@@ -31,4 +31,7 @@ body, html {
     background-color: #282828;
     color: #fff;
     border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
   }

@@ -23,5 +23,6 @@ body, html {
   }
 
   form {
-
+    display: flex;
+    flex-direction: column;
   }

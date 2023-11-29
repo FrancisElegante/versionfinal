@@ -102,6 +102,7 @@ export class UserService {
     }
 
     async updateUser(user: User) {
+      const userRef = collection(this.firestore, 'usuarios');
 
     }
 

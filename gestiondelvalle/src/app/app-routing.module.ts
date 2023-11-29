@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToRegister = () => redirectUnauthorizedTo(['/auth/login']);
+
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/main' },
@@ -9,11 +13,11 @@ const routes: Routes = [
   },
   {
     path:'main',
-    loadChildren:()=> import('./modules/main/main.module').then(m=>m.MainModule)
+    loadChildren:()=> import('./modules/main/main.module').then(m=>m.MainModule), ...canActivate(redirectUnauthorizedToRegister) 
   },
   {
     path:'usuario',
-    loadChildren:()=> import('./modules/usuario/usuario.module').then(m=>m.UsuarioModule)
+    loadChildren:()=> import('./modules/usuario/usuario.module').then(m=>m.UsuarioModule), ...canActivate(redirectUnauthorizedToRegister) 
   },
   {
     path:'administrador',

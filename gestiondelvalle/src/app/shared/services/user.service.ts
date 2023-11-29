@@ -92,5 +92,17 @@ export class UserService {
       return from(getDoc(userRef)).pipe(
         map((snapshot: DocumentSnapshot<DocumentData>) => {
           if (snapshot.exists()) {
+            const data = snapshot.data();
+            return { uid: snapshot.id, ...data } as User;
+          } else {
+            return null;
+          }
+        })
+      );
     }
+
+    async updateUser(user: User) {
+
+    }
+
 }

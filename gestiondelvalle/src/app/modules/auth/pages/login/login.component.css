@@ -28,5 +28,7 @@ body, html {
   }
 
   input {
-
+    background-color: #282828;
+    color: #fff;
+    border: none;
   }

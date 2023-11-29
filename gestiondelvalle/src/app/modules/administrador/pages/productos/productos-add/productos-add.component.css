@@ -1,0 +1,106 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #111;
+    color: #00ffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #111;
+    color: #00ffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  h1 {
+    font-size: 4rem; /* Aumentar el tamaño del texto */
+    margin-bottom: 1.5rem; /* Reducir el margen inferior */
+    text-transform: uppercase; /* Convertir el texto en mayúsculas */
+    letter-spacing: 6px; /* Aumentar el espaciado entre letras */
+    color: #00aaff;
+    text-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff, 0 0 30px #00aaff, 0 0 40px #00aaff, 0 0 50px #00aaff, 0 0 60px #00aaff, 0 0 70px #9c00ff, 0 0 80px #9c00ff; /* Efecto de sombra del texto */
+    animation: neonGlow 5s ease infinite; /* Agregar la animación al título */
+  }
+  
+  /* Definir la animación "neonGlow" */
+  @keyframes neonGlow {
+    0%, 100% {
+      text-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff, 0 0 30px #00aaff, 0 0 40px #00aaff, 0 0 50px #00aaff, 0 0 60px #00aaff, 0 0 70px #9c00ff, 0 0 80px #9c00ff; /* Efecto de sombra del texto */
+    }
+    50% {
+      text-shadow: none; /* Sin sombra */
+    }
+  }
+  
+  .form-group {
+    margin-bottom: 1rem; /* Reducir el margen inferior */
+    max-width: 500px; /* Establecer un ancho máximo para los elementos del formulario */
+    width: 100%; /* Ajustar el ancho al 100% del contenedor */
+  }
+  
+  label {
+    font-size: 1.2em;
+    color: #00ffff;
+    text-shadow: 1px 1px #ff6aff;
+  }
+  
+  input {
+    background-color: #111;
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%; /* Ampliar el ancho de los inputs al 100% del contenedor */
+    align-self: center; /* Centrar los inputs horizontalmente */
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #ff6aff;
+    box-shadow: 0 0 5px #ff6aff;
+  }
+  
+  .btn-primary {
+    background-color: #00ffff;
+    color: #111;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center; /* Centrar el botón horizontalmente */
+  }
+  
+  .btn-primary:hover {
+    background-color: #ff6aff;
+  }
+  
+  .body {
+    animation: fadeIn 1s ease;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .form-container {
+    min-height: 65vh; /* Ajusta el valor de acuerdo a tus necesidades */
+  }
+  

@@ -13,10 +13,12 @@ import { environment } from './enviorments/enviorments';
 import { SharedModule } from './shared/shared.module';
 import { MainModule } from './modules/main/main.module';
 import { UsuarioModule } from './modules/usuario/usuario.module';
+import { NavbarrealComponent } from './modules/compartido/pages/navbarreal/navbarreal.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarrealComponent,
   ],
   imports: [
     BrowserModule,

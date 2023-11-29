@@ -5,6 +5,7 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { ProductosAddComponent } from './pages/productos/productos-add/productos-add.component';
 import { ProductosEditComponent } from './pages/productos/productos-edit/productos-edit.component';
 import { AdministradorRoutingModule } from './administrador-routing.module';
+import { FormsModule,ReactiveFormsModule, FormGroup, Validators, FormBuilder } from "@angular/forms";
 
 
 
@@ -17,7 +18,9 @@ import { AdministradorRoutingModule } from './administrador-routing.module';
   ],
   imports: [
     CommonModule,
-    AdministradorRoutingModule
+    AdministradorRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AdministradorModule { }

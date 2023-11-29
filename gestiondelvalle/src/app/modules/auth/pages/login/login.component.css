@@ -6,3 +6,8 @@ body, html {
     height: 100vh;
     margin: 0;
   }
+
+  .container {
+    background-color: #1a1a1a;
+    color: #fff;
+  }

@@ -26,6 +26,27 @@ export class ProductosService {
     return addDoc(productosRef, productos);
   }
 
+  getPlayers(filter = '') {
+    const productosRef = collection(this.firestore, 'productos');
+    let q = query(productosRef);
+    if (filter) {
+      q = query(productosRef, where('nombre', '==', filter));
+    }
+    return collectionData(q) as unknown as Observable<Productos[]>;
+  }
+  
+  
+
+  async updatePlayer(productos: Productos) {
+    const productosRef = collection(this.firestore, 'productos');
+    let q = query(productosRef, where('id', '==', productos.id));
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach(async (document) => {
+      const docRef = doc(this.firestore, 'productos', document.id);
+      await updateDoc(docRef, { ...productos });
+    });
+  }
 
 
 

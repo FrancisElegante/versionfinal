@@ -10,4 +10,6 @@ body, html {
   .container {
     background-color: #1a1a1a;
     color: #fff;
+    padding: 40px;
+    border-radius: 10px;
   }

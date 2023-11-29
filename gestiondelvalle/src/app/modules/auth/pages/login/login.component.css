@@ -35,3 +35,12 @@ body, html {
     padding: 10px;
     margin-bottom: 20px;
   }
+
+  @keyframes anim-grow {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }

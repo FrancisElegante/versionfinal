@@ -197,7 +197,8 @@ export class MainComponent implements OnInit, AfterViewInit{
 inspeccionar(producto : Productos){
   const productId = producto.id;
   console.log(productId)
-  this.router.navigate(['/producto', productId]);
+  this.router.navigate(['/productoseleccionado', productId]);
+  console.log("estoy funcionando :)")
 }
 
   ngAfterViewInit(): void {

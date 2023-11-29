@@ -1,1 +1,17 @@
-<p>productoseleccionado works!</p>
+<div *ngIf="productos$ | async as productos">
+    <div class="products-container">
+      <div class="card" *ngFor="let producto of productos">
+        <div class="card-header">
+          <h5 class="card-title">{{ producto.nombre }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">ID: {{ producto.id }}</h6>
+        </div>
+        <div class="card-body">
+          <img class="card-img" [src]="producto.image" alt="Imagen del producto">
+          <p class="card-text">{{ producto.descripcion }}</p>
+          <p class="card-text">Precio: {{ producto.precio }}</p>
+          <button type="button" class="btn-comprar" (click)="addToCart(producto)">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

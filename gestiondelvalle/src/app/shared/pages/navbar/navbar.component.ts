@@ -20,7 +20,25 @@ export class NavbarComponent {
   rol: 'comprador' | 'admin' = 'comprador';
 
 
-
+  constructor(private elementRef: ElementRef, private auth: Auth, private userService: UserService, private firestore: Firestore, private router: Router )  {
+    this.userService.isLoggedIn().subscribe((loggedIn: boolean) => {
+      if (loggedIn) {
+        console.log('El usuario está logueado');
+        // Realiza las acciones necesarias cuando el usuario está logueado
+        this.login = true;
+        // Obtener el UID del usuario logueado
+        const user = this.auth.currentUser;
+        if (user) {
+          const uid = user.uid;
+          this.getDatosUser3(uid); // Pasar el UID a la funciónk
+        }
+      } else {
+        console.log('El usuario no está logueado');
+        // Realiza las acciones necesarias cuando el usuario no está logueado
+        this.login = false;
+      }
+    });
+  }
 
 
 

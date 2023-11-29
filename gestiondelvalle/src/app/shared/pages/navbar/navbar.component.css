@@ -35,3 +35,8 @@ nav {
     font-size: 1.3rem;
     font-weight: 800;
 }
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
+}

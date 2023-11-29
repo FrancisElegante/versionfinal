@@ -68,3 +68,7 @@ body, html {
     position: relative;
     overflow: hidden;
   }
+
+  button:hover {
+    box-shadow: 0 0 40px rgba(1, 27, 255, 0.8);
+  }

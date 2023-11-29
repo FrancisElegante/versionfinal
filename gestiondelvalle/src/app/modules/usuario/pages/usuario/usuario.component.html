@@ -1,1 +1,49 @@
-<p>usuario works!</p>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  </head>
+  
+  <div class="perfil">
+    <img src="{{fotousuario}}">
+    <h2>{{nombreusuario}} {{apellidousuario}}</h2>
+  </div>
+  
+  <body id="body">
+  
+  
+  
+    <div class="container">
+  
+      <a routerLink="/datos">
+        <div class="card">
+          <i class="fa-solid fa-user fa-5x" style="color: #776B5D;"></i>
+          <h2 class="card-title">Mi Perfil</h2>
+          <p class="card-text">Modificar datos personales</p>
+        </div>
+      </a>
+  
+      <a routerLink="/contrasena">
+  
+        <div class="card">
+          <i class="fa-solid fa-lock fa-5x" style="color: #776B5D;"></i>
+          <h2 class="card-title">Seguridad y Privacidad</h2>
+          <p class="card-text">Modifica tu contraseña</p>
+        </div>
+      </a>
+      <a routerLink="/direccion">
+  
+        <div class="card">
+          <i class="fa-solid fa-street-view fa-5x" style="color: #776B5D;"></i>
+          <h2 class="card-title">Direccion</h2>
+          <p class="card-text">Añade o modifica tu direccion</p>
+        </div>
+      </a>
+      <a routerLink="/compras">
+  
+        <div class="card">
+          <i class="fa-solid fa-cart-shopping fa-5x" style="color: #776B5D;"></i>
+          <h2 class="card-title">Compras</h2>
+          <p class="card-text">Visualiza tus compras</p>
+        </div>
+      </a>
+    </div>
+  </body>

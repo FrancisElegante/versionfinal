@@ -11,7 +11,10 @@
           <input type="password" class="form-control" formControlName="password">
         </div>
         <button type="submit"  class="neon-button" >Iniciar Sesión</button>
-        <button type="submit" routerLink="/register" class="neon-button" >Registrarse</button>
+
+        
+        <button  routerLink="/registro" class="neon-button" href="/auth/registro"><a routerLink="/auth/" href="/auth/registro">Registrarse</a></button>
+        
 
         <button class="neon-button" (click)="onClick()">
           <i class="fab fa-google"></i>
@@ -21,3 +24,5 @@
     </div>
   </body>
   
+
+

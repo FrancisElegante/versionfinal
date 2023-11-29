@@ -10,7 +10,6 @@ import { UserService } from '../../../../shared/services/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
-
   _router = inject(Router);
 
   formLogin: FormGroup;
@@ -50,5 +49,5 @@ export class LoginComponent implements OnInit{
   navigateToUserAdd() {
     this.router.navigate(['/main']);
   }
-
-}
+  }
+  

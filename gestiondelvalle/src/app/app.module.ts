@@ -11,6 +11,8 @@ import { getMessaging, provideMessaging } from '@angular/fire/messaging';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { environment } from './enviorments/enviorments';
 import { SharedModule } from './shared/shared.module';
+import { MainModule } from './modules/main/main.module';
+import { UsuarioModule } from './modules/usuario/usuario.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    MainModule,
+    UsuarioModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
@@ -30,4 +34,8 @@ import { SharedModule } from './shared/shared.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+
+  
+ }

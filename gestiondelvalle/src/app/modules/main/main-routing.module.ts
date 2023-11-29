@@ -6,14 +6,10 @@ import { ProductoseleccionadoComponent } from './pages/productoseleccionado/prod
 import { MainComponent } from './pages/main/main.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    children: [
+ 
       {path: 'carrito', component: CarritoComponent},
-      {path: 'main', component: MainComponent},
+      {path: '', component: MainComponent},
       {path: 'productoseleccionado', component: ProductoseleccionadoComponent}
-    ]
-  }
 
 ]
 

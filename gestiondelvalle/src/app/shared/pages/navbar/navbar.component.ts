@@ -13,7 +13,7 @@ import { UserService } from '../../../shared/services/user.service';
   styleUrls: ['./navbar.component.css']
 })
 
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
 
   user: User | null = null; // Initialize with null
   login: boolean = false;
@@ -68,6 +68,7 @@ export class NavbarComponent {
       .catch(error => console.log(error)); 
   }
 
-
+  ngOnInit(): void {
+  }
 
 }

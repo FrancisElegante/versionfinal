@@ -7,15 +7,13 @@ import { ProductosAddComponent } from './pages/productos/productos-add/productos
 import { ProductosEditComponent } from './pages/productos/productos-edit/productos-edit.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    children: [
+
+
       {path: 'administrador', component: AdministradorComponent},
       {path: 'productos', component: ProductosComponent},
       {path: 'productos-add', component: ProductosAddComponent},
       {path: 'productos-edit', component: ProductosEditComponent},
-    ]
-  }
+
 
 ]
 

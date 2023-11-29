@@ -20,7 +20,10 @@ import { CarruselComponent } from './pages/carrusel/carrusel.component';
     MainRoutingModule
   ],
   exports: [
-    CarruselComponent
+    CarruselComponent,
+    MainComponent,
+    CarritoComponent,
+    ProductoseleccionadoComponent
   ]
 })
 export class MainModule { }

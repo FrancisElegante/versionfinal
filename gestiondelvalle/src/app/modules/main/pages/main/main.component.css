@@ -388,6 +388,45 @@
     }
   }
   
+  @media (max-width: 480px) {
+    .titulo3 {
+      /* Estilos específicos para tabletas en orientación vertical */
+      font-size: 30px;
+    }
   
+    .nombre {
+      /* Estilos específicos para tabletas en orientación vertical */
+      font-size: 15px;
+    }
+  }
+  
+  /* Dispositivos pequeños */
+  @media (min-width: 481) and (max-width: 768px) {
+    .contenedor{
+      height: 110px;
+    }
+    .titulo3 {
+      /* Estilos específicos para dispositivos pequeños */
+      font-size: 45px; /* Ajusta el tamaño del texto para dispositivos pequeños */
+    }
+  
+    .nombre {
+      /* Estilos específicos para dispositivos pequeños */
+      font-size: 20px; /* Ajusta el tamaño del texto para dispositivos pequeños */
+    }
+  }
+  
+  /* Pantallas grandes */
+  @media (min-width: 769) and (max-width: 1024) {
+    .titulo3 {
+      /* Estilos específicos para pantallas grandes */
+      font-size: 60px;
+    }
+  
+    .nombre {
+      /* Estilos específicos para pantallas grandes */
+      font-size: 40px;
+    }
+  }
   
   

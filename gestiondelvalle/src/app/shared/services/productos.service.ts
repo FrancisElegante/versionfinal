@@ -48,7 +48,21 @@ export class ProductosService {
     });
   }
 
+  async deletePlayer(id: string) {
+    const productosRef = collection(this.firestore, 'productos');
+    let q = query(productosRef, where('id', '==', id));
+    const querySnapshot = await getDocs(q);
 
+    querySnapshot.forEach(async (document) => {
+      const docRef = doc(this.firestore, 'productos', document.id);
+      deleteDoc(docRef);
+    });
+  }
+
+  addPlace(productos: Productos) {
+    const productosRef = collection(this.firestore, 'productos');
+    return addDoc(productosRef, productos);
+  }
 
 
 

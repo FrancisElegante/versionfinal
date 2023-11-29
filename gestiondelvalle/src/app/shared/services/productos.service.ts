@@ -64,7 +64,21 @@ export class ProductosService {
     return addDoc(productosRef, productos);
   }
 
+  getPlaces(): Observable<Productos[]> {
+    const productosRef = collection(this.firestore, 'productos');
+    return collectionData(productosRef, { idField: 'id' }) as Observable<Productos[]>;
+  }
 
+  deletePlace(productos: Productos) {
+    const productosDocRef = doc(this.firestore, `productos/${productos.id}`);
+    return deleteDoc(productosDocRef);
+  }
+
+  async updateProductId(productId: string, newId: string): Promise<void> {
+    const productoRef = doc(this.firestore, 'productos', productId);
+    await updateDoc(productoRef, { id: newId });
+  }
+  
 
 
 

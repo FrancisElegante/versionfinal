@@ -80,3 +80,7 @@ body, html {
   button:active {
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
   }
+
+  button:hover span {
+    animation: anim-grow 0.3s forwards;
+  }

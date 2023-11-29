@@ -40,9 +40,33 @@ export class NavbarComponent {
     });
   }
 
+  getDatosUser3(uid: string | undefined) {
+    if (uid) {
+      this.userService.getUserByUid(uid).subscribe(user => {
+        if (user) {
+          console.log('Usuario encontrado:', user);
+          console.log('Rol usuario', user.rol);
+  
+          if (user.rol === 'comprador' || user.rol === 'admin') {
+            this.rol = user.rol;
+          } else {
+            this.rol = 'comprador';
+          }
+        } else {
+          console.log('Usuario no encontrado');
+        }
+      });
+    }
+  }
 
-
-
+  cerrarSesion() {
+    window.location.reload();
+    this.userService.logout()
+      .then(() => {
+        this.router.navigate(['/register']);
+      })
+      .catch(error => console.log(error)); 
+  }
 
 
 

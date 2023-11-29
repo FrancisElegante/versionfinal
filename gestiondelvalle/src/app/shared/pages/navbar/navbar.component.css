@@ -40,3 +40,12 @@ nav {
     color: #fff;
     text-decoration: none;
 }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding: 0;
+    background-color: transparent;
+    overflow: hidden;
+}

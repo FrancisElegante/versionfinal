@@ -89,3 +89,13 @@ body, html {
     box-shadow: 0 0 40px rgba(1, 27, 255, 0.8);
     animation: anim-grow-text 0.3s forwards;
   }
+
+  @keyframes anim-grow-text {
+    0% {
+      font-size: 18px;
+    }
+    100% {
+      font-size: 20px;
+    }
+  }
+  

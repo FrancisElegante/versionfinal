@@ -19,3 +19,14 @@ header {
     box-shadow: 0 0 36px 0;
     backdrop-filter: blur(3px);
 }
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80%;
+    margin: auto;
+    padding: 1.2rem 0rem;
+    position: sticky;
+
+}

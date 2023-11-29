@@ -103,6 +103,8 @@ export class UserService {
 
     async updateUser(user: User) {
       const userRef = collection(this.firestore, 'usuarios');
+      let q = query(userRef, where('id', '==', user.uid));
+      const querySnapshot = await getDocs(q);
 
     }
 

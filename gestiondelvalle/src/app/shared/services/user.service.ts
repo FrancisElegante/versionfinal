@@ -1,3 +1,4 @@
+
 // Importaciones de Angular, Firebase y RxJS
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
@@ -88,4 +89,13 @@ export class UserService {
       await updateDoc(docRef, { ...userDoc.data() });
     });
   }
+=======
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+
+  constructor() { 
 }

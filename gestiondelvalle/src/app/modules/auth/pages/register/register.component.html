@@ -1,0 +1,13 @@
+<form [formGroup]="formReg" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" formControlName="nombre">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Apellido</label>
+        <input type="text" class="form-control" formControlName="apellido">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Sexo</label>
+        <input type="text" class="form-control" formControlName="sexo">
+    </div>

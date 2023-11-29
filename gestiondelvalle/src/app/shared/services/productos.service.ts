@@ -16,5 +16,22 @@ import {  Firestore, collection, addDoc, collectionData, doc, deleteDoc } from '
 })
 export class ProductosService {
 
-  constructor() { }
+  private productosSource = new BehaviorSubject<any | null>(null);
+  productos$ = this.productosSource.asObservable();
+
+  constructor(private firestore: Firestore) {}
+
+  addPlayer(productos: Productos) {
+    const productosRef = collection(this.firestore, 'productos');
+    return addDoc(productosRef, productos);
+  }
+
+
+
+
+
+
+
+
+
 }

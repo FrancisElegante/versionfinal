@@ -1,10 +1,8 @@
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { UserService } from '../../../../shared/services/user.service';
-import { Component, OnInit, inject } from '@angular/core';
-
-
-
 
 @Component({
   selector: 'app-login',

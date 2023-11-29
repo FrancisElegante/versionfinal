@@ -15,6 +15,11 @@ import { SharedRoutingModule } from './shared-routing.module';
   imports: [
     CommonModule,
     SharedRoutingModule
+
+  ],
+  exports: [
+    NavbarComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }

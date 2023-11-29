@@ -44,3 +44,8 @@ body, html {
       transform: scale(1.1);
     }
   }
+
+  button span {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+  }

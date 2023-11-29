@@ -1,1 +1,30 @@
-<p>direccion works!</p>
+<div class="titulo">
+    <h1>Mis Datos de Dirección</h1>
+    </div>
+    <div class="body">
+      <form [formGroup]="direccionForm" (ngSubmit)="guardarDireccion()">
+        <div class="form-container">
+          <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="text" class="form-control" formControlName="direccion" id="direccion">
+          </div>
+          <div class="form-group">
+            <label for="altura">Altura</label>
+            <input type="text" class="form-control" id="altura" formControlName="altura">
+          </div>
+          <div class="form-group">
+            <label for="provincia">Provincia</label>
+            <input type="text" class="form-control" id="provincia" formControlName="provincia">
+          </div>
+          <div class="form-group">
+            <label for="ciudad">Ciudad</label>
+            <input type="text" class="form-control" id="ciudad" formControlName="ciudad">
+          </div>
+          <div class="form-group">
+            <label for="codigoPostal">Codigo Postal</label>
+            <input type="text" class="form-control" id="codigoPostal" formControlName="codigoPostal">
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!direccionForm.valid">Guardar cambios</button>
+        </div>
+      </form>
+    </div>

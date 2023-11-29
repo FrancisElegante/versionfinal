@@ -4,6 +4,7 @@ import { CarritoComponent } from './pages/carrito/carrito.component';
 import { MainComponent } from './pages/main/main.component';
 import { ProductoseleccionadoComponent } from './pages/productoseleccionado/productoseleccionado.component';
 import { MainRoutingModule } from './main-routing.module';
+import { CarruselComponent } from './pages/carrusel/carrusel.component';
 
 
 
@@ -11,11 +12,18 @@ import { MainRoutingModule } from './main-routing.module';
   declarations: [
     CarritoComponent,
     MainComponent,
-    ProductoseleccionadoComponent
+    ProductoseleccionadoComponent,
+    CarruselComponent
   ],
   imports: [
     CommonModule,
     MainRoutingModule
+  ],
+  exports: [
+    CarruselComponent,
+    MainComponent,
+    CarritoComponent,
+    ProductoseleccionadoComponent
   ]
 })
 export class MainModule { }

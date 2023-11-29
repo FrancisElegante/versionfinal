@@ -10,6 +10,9 @@ import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { getMessaging, provideMessaging } from '@angular/fire/messaging';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { environment } from './enviorments/enviorments';
+import { SharedModule } from './shared/shared.module';
+import { MainModule } from './modules/main/main.module';
+import { UsuarioModule } from './modules/usuario/usuario.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { environment } from './enviorments/enviorments';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SharedModule,
+    MainModule,
+    UsuarioModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
@@ -28,4 +34,8 @@ import { environment } from './enviorments/enviorments';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+
+  
+ }

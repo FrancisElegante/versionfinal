@@ -7,13 +7,10 @@ import { FooterComponent } from './pages/footer/footer.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    children: [
+  
+
       {path: 'footer', component: FooterComponent},
       {path: 'navbar', component: NavbarComponent}
-    ]
-  }
 
 ]
 

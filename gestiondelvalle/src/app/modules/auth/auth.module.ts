@@ -7,7 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 
 import { AuthroutingModule } from './authrouting.module';
 
-
+import { FormsModule,ReactiveFormsModule, FormGroup, Validators, FormBuilder } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,7 +16,9 @@ import { AuthroutingModule } from './authrouting.module';
   ],
   imports: [
     CommonModule,
-    AuthroutingModule
+    AuthroutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthModule { }

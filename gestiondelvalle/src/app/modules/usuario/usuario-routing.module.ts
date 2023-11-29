@@ -7,16 +7,14 @@ import { DireccionComponent } from './pages/direccion/direccion.component';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    children: [
+  
+
       {path: 'contrasena', component: ContrasenaComponent},
       {path: 'datos', component: DatosComponent},
       {path: 'direccion', component: DireccionComponent},
       {path: 'usuario', component: UsuarioComponent},
 
-    ]
-  }
+
 
 ]
 

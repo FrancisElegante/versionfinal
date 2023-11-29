@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '/main' },
   {
     path:'auth',
     loadChildren:()=> import('./modules/auth/auth.module').then(m=>m.AuthModule)
@@ -17,10 +18,6 @@ const routes: Routes = [
   {
     path:'administrador',
     loadChildren:()=> import('./modules/administrador/administrador.module').then(m=>m.AdministradorModule)
-  },
-  {
-    path:'pages',
-    loadChildren:()=> import('./shared/shared.module').then(m=>m.SharedModule)
   },
 ];
 

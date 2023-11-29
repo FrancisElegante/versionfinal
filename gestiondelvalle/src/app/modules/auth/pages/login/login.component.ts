@@ -31,6 +31,19 @@ export class LoginComponent implements OnInit{
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    this.userService.login(this.formLogin.value)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => console.log(error));
+      this._router.navigate(['/main']);
 
+  }
+
+
+  navigateToUserAdd() {
+    this.router.navigate(['/main']);
+  }
 
 }

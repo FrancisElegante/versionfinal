@@ -64,4 +64,7 @@ body, html {
     box-shadow: 0 0 20px rgba(17, 57, 165, 0.5);
     transition: box-shadow 0.3s ease-in-out;
     margin-top: 50px;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
   }

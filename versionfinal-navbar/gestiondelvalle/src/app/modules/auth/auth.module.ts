@@ -15,7 +15,7 @@ import { FormsModule,ReactiveFormsModule, FormGroup, Validators, FormBuilder } f
 
 import { MessagesModule } from 'primeng/messages';
 import { ButtonModule } from 'primeng/button';
-import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { MessageService } from 'primeng/api';
     ReactiveFormsModule,
     MessagesModule,
     ButtonModule,
-    MessageService
+    ToastModule
   ]
 })
 export class AuthModule { }

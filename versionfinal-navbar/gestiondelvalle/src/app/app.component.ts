@@ -14,7 +14,7 @@ import { PrimeNGConfig } from 'primeng/api';
 })
 export class AppComponent implements OnInit {
   tittle="gestiondelvalle"
-  
+
   constructor(private primengConfig: PrimeNGConfig) {}
 
   ngOnInit() {

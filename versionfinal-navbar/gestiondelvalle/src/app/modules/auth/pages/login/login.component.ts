@@ -7,10 +7,6 @@ import { UserService } from '../../../../shared/services/user.service';
 
 import { MessagesModule } from 'primeng/messages';
 import { Message } from 'primeng/api';
-import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,11 +21,11 @@ export class LoginComponent implements OnInit{
   formLogin: FormGroup;
 
 
+
   constructor(
     private userService: UserService,
     private router: Router,
-    private message:MessagesModule,
-    private messageService: MessageService
+    private message:MessagesModule
   ) {
     this.formLogin = new FormGroup({
       email: new FormControl(),
@@ -37,9 +33,7 @@ export class LoginComponent implements OnInit{
     })
   }
 
-  show() {
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
-}
+
 
   ngOnInit() {
     this.messages = [{ severity: 'success', summary: 'Success', detail: 'Message Content' }];

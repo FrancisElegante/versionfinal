@@ -1,0 +1,39 @@
+<form [formGroup]="formReg" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" formControlName="nombre">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Apellido</label>
+        <input type="text" class="form-control" formControlName="apellido">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Sexo</label>
+        <input type="text" class="form-control" formControlName="sexo">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Edad</label>
+        <input type="number" class="form-control" formControlName="edad">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Correo</label>
+        <input type="text" class="form-control" formControlName="correo">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Contraseña</label>
+        <input type="password" class="form-control" formControlName="contraseña">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Vuelva a ingresar su contraseña</label>
+        <input type="password" class="form-control" formControlName="contraseña2">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">URL de su imagen de perfil</label>
+        <input type="text" class="form-control" formControlName="imagen">
+    </div>
+
+    <input type="submit" value="Enviar" (click)="mostraralerta()">
+    <button type="submit" routerLink="/login" class="neon-button" >Ya tenes cuenta? Inicia sesion</button>
+
+    
+</form>

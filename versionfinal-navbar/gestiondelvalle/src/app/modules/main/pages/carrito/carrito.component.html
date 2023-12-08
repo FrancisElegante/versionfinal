@@ -1,0 +1,68 @@
+<div class="background">
+
+    <div *ngIf="cartItems$ | async as cartItems; else loading">
+      
+  
+    </div>
+  
+    <ng-template #loading>
+      <p>Cargando carrito...</p>
+    </ng-template>
+  
+  
+    <div class="container">
+  
+      <section id="cart" *ngIf="cartItems$ | async as cartItems; else loading">
+        <article class="product" *ngFor="let carrito of cartItems">
+          <header>
+            <a class="remove">
+              <img [src]="carrito.image" alt="">
+              <h3 (click)="eliminarProducto(carrito)">Eliminar Producto</h3>
+            </a>
+          </header>
+  
+          <div class="content" style="color: black;">
+  
+            <h1>{{carrito.nombre}}</h1>
+  
+            {{carrito.descripcion}}
+          </div>
+  
+          <footer class="content">
+            <!--Disminye la cantidad del producto en 1 al presionarlo-->
+            <span class="qt-minus" (click)="decreaseQuantity(carrito)" style="color: black;">-</span>
+            <span class="qt" style="color: black;">{{carrito.cantidad}}</span>
+            <!--Aumenta la cantidad del producto en 1 al presionarlo-->
+            <span class="qt-plus" (click)="increaseQuantity(carrito)" style="color: black;">+</span>
+  
+            <h2 class="full-price" style="color: black;">
+              {{carrito.precio}}
+            </h2>
+  
+            <h2 class="price" style="color: black;">
+              {{carrito.precio}}
+            </h2>
+          </footer>
+        </article>
+      </section>
+  
+      <footer id="site-footer">
+        <div class="container clearfix">
+  
+          <div class="left">
+            <h2 class="subtotal" style="color: black;">Total Parcial: <span>{{this.preciototal}}</span>$</h2>
+            <h3 class="tax" style="color: black;">Impuestos (5%): <span>8.2</span>$</h3>
+            <h3 class="shipping" style="color: black;">Envio: <span>5.00</span>$</h3>
+          </div>
+  
+          <div class="right">
+            <h1 class="total">Total: <span>{{this.preciototal}}</span>$</h1>
+            <a class="btn">Finalizar Compra</a>
+          </div>
+          <div id="wallet_container"></div>
+        </div>
+      </footer>
+    </div>
+  
+  </div>
+  

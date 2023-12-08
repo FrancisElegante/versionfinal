@@ -1,0 +1,31 @@
+<body>
+    <div class="container">
+      <h1>Login</h1>
+      <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+        <div class="user-box">
+          <label>Email</label>
+          <input type="text" class="form-control" formControlName="email">
+        </div>
+        <div class="user-box">
+          <label>Contraseña</label>
+          <input type="password" class="form-control" formControlName="password">
+        </div>
+        <button type="submit"  class="neon-button" >Iniciar Sesión</button>
+
+
+        
+        <button  routerLink="/registro" class="neon-button" href="/auth/registro"><a routerLink="/auth/" href="/auth/registro">Registrarse</a></button>
+        
+
+        <button class="neon-button" (click)="onClick()">
+          <i class="fab fa-google"></i>
+          Login With Google
+        </button>
+      </form>
+    </div>
+  </body>
+
+
+
+
+

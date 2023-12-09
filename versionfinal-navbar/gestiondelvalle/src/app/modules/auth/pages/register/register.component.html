@@ -1,65 +1,64 @@
-<form [formGroup]="formReg" (ngSubmit)="onSubmit()">
+<body>
+    
+    <p-toast></p-toast>
+
+<form [formGroup]="formReg" (ngSubmit)="onSubmit()" class="my-5">
     <div class="mb-3">
         <label class="form-label">Nombre</label>
         <input type="text" class="form-control" formControlName="nombre">
-        <div *ngIf="formReg?.get('nombre')?.hasError('required')">
+        <div *ngIf="formReg?.get('nombre')?.hasError('required')" class="text-danger">
             El nombre es requerido.
         </div>
     </div>
     <div class="mb-3">
         <label class="form-label">Apellido</label>
         <input type="text" class="form-control" formControlName="apellido">
-        <div *ngIf="formReg?.get('apellido')?.hasError('required')">
+        <div *ngIf="formReg?.get('apellido')?.hasError('required')" class="text-danger">
             El apellido es requerido.
         </div>
     </div>
     <div class="mb-3">
         <label class="form-label">Sexo</label>
         <input type="text" class="form-control" formControlName="sexo">
-        <div *ngIf="formReg?.get('sexo')?.hasError('required')">
-            El genero es requerido.
+        <div *ngIf="formReg?.get('sexo')?.hasError('required')" class="text-danger">
+            El género es requerido.
         </div>
     </div>
     <div class="mb-3">
         <label class="form-label">Edad</label>
         <input type="number" class="form-control" formControlName="edad">
-        <div *ngIf="formReg?.get('edad')?.hasError('required')">
+        <div *ngIf="formReg?.get('edad')?.hasError('required')" class="text-danger">
             La edad es requerida.
         </div>
     </div>
     <div class="mb-3">
         <label class="form-label">Correo</label>
         <input type="text" class="form-control" formControlName="email">
-        <!-- Verificación para asegurarse de que formLogin no sea null -->
-        <div *ngIf="formReg?.get('email')?.hasError('requiresAtSymbol')">
+        <div *ngIf="formReg?.get('email')?.hasError('requiresAtSymbol')" class="text-danger">
             Se requiere al menos un símbolo "@" en el correo electrónico.
         </div>
-        <!-- Otras verificaciones para mensajes de error predeterminados -->
-        <div *ngIf="formReg?.get('email')?.hasError('required')">
+        <div *ngIf="formReg?.get('email')?.hasError('required')" class="text-danger">
             El correo electrónico es requerido.
         </div>
     </div>
     <div class="mb-3">
         <label class="form-label">Contraseña</label>
-        <input type="password" class="form-control" formControlName="password">
-        <!-- Verificación para asegurarse de que formLogin no sea null -->
-        <div *ngIf="formReg?.get('password')?.hasError('passwordTooShort')">
-            La contraseña debe tener 6 o mas caracteres.
+        <p-password [(ngModel)]="value" formControlName="password" [toggleMask]="true"></p-password>
+        <div *ngIf="formReg?.get('password')?.hasError('passwordTooShort')" class="text-danger">
+            La contraseña debe tener 6 o más caracteres.
         </div>
-        <!-- Otras verificaciones para mensajes de error predeterminados -->
-        <div *ngIf="formReg?.get('password')?.hasError('required')">
+        <div *ngIf="formReg?.get('password')?.hasError('required')" class="text-danger">
             La contraseña es requerida.
         </div>
     </div>
     <div class="mb-3">
         <label class="form-label">Vuelva a ingresar su contraseña</label>
         <input type="password" class="form-control" formControlName="contraseña2">
-        <!-- Verificación para asegurarse de que formLogin no sea null -->
-        <div *ngIf="formReg?.hasError('passwordsDoNotMatch')">
+        <div *ngIf="formReg?.hasError('passwordsDoNotMatch')" class="text-danger">
             Las contraseñas no coinciden.
         </div>
-        <div *ngIf="formReg?.get('contraseña2')?.hasError('required')">
-            Volver a ingresar la contraseña es requerido
+        <div *ngIf="formReg?.get('contraseña2')?.hasError('required')" class="text-danger">
+            Volver a ingresar la contraseña es requerido.
         </div>
     </div>
     <div class="mb-3">
@@ -67,8 +66,7 @@
         <input type="text" class="form-control" formControlName="imagen">
     </div>
 
-    <input type="submit" value="Enviar" (click)="mostraralerta()" [disabled]="!formReg.valid">
-    <button routerLink="/auth/login" class="neon-button">Ya tenes cuenta? Inicia sesion</button>
-
-
+    <button type="submit" class="btn btn-primary" [disabled]="!formReg.valid">Enviar</button>
+    <a routerLink="/auth/login" class="btn btn-link">¿Ya tienes cuenta? Inicia sesión</a>
 </form>
+</body>

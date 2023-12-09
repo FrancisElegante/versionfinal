@@ -17,7 +17,7 @@ import { MessagesModule } from 'primeng/messages';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-
+import { PasswordModule } from 'primeng/password';
 @NgModule({
   declarations: [
     RegisterComponent,
@@ -30,7 +30,8 @@ import { MessageService } from 'primeng/api';
     ReactiveFormsModule,
     MessagesModule,
     ButtonModule,
-    ToastModule
+    ToastModule,
+    PasswordModule
   ],
   providers:[
     MessageService

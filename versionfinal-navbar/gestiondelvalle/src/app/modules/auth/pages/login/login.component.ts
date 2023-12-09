@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
   }
 
   showSuccess() {
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Sesion Iniciada Correctamente' });
+    this.messageService.add({ severity: 'success', summary: 'Sesion Iniciada', detail: 'Sesion iniciada correctamente' });
   }
 
   showError() {

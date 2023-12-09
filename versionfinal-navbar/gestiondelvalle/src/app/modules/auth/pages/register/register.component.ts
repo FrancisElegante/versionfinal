@@ -3,20 +3,27 @@ import { FormControl, FormGroup, Validators, ValidatorFn, AbstractControl, Valid
 import { Router } from '@angular/router';
 
 import { UserService } from '../../../../shared/services/user.service';
+import { MessageModule } from 'primeng/message';
+import { Message } from 'primeng/api';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers: [MessageService]
 })
 export class RegisterComponent implements OnInit {
 
   formReg: FormGroup;
   _router = inject(Router);
+  value!: string;
+  messages: Message[] = []; // Inicializa messages como un array vacío
 
 
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private messageService: MessageService
+    ) {
     this.formReg = new FormGroup({
       nombre: new FormControl('', [
         Validators.required,
@@ -36,7 +43,7 @@ export class RegisterComponent implements OnInit {
         this.emailValidator()
       ]),
       imagen: new FormControl(
-        
+
       ),
       password: new FormControl('', [
         Validators.required,
@@ -47,7 +54,17 @@ export class RegisterComponent implements OnInit {
     }, { validators: this.matchingPasswordsValidator('password', 'contraseña2') });
   }
 
+  showSuccess() {
+    this.messageService.add({ severity: 'success', summary: 'Cuenta Creada!', detail: 'Cuenta creada correctamente' });
+  }
+
+  showError() {
+    this.messageService.add({ severity: 'error', summary: 'Error al crear la cuenta!', detail: 'Error, no se pudo crear la cuenta. Intentelo mas tarde' });
+  }
+
   ngOnInit(): void {
+    this.messages = [{ severity: 'error', summary: 'Error', detail: 'Closable Message Content' }];
+
   }
 
 
@@ -87,19 +104,24 @@ export class RegisterComponent implements OnInit {
       .then(response => {
         console.log(response);
         console.log("Éxito al crear usuario");
-        this._router.navigate(['/auth/login']);
         const uid = response.user.uid;
         this.userService.guardarDatos(uid, this.formReg.value)
           .then(() => {
             console.log("Datos guardados en Firestore");
+            this.showSuccess();
+            setTimeout(() => {
+              this._router.navigate(['/auth/login']);
+            }, 2000);
           })
           .catch(error => {
             console.log("Error al guardar los datos en Firestore:", error);
+            this.showError();
           });
       })
       .catch(error => {
         console.log(error);
         console.log("Fallo al crear usuario");
+        this.showError();
       });
   }
 

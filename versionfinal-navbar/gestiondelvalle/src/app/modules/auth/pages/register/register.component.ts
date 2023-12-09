@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { UserService } from '../../../../shared/services/user.service';
@@ -9,7 +9,7 @@ import { UserService } from '../../../../shared/services/user.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit{
+export class RegisterComponent implements OnInit {
 
   formReg: FormGroup;
   _router = inject(Router);
@@ -18,22 +18,67 @@ export class RegisterComponent implements OnInit{
 
   constructor(private userService: UserService) {
     this.formReg = new FormGroup({
-      nombre: new FormControl(),
+      nombre: new FormControl('', [
+        Validators.required,
+      ]),
       rol: new FormControl('comprador'),
-      apellido: new FormControl(),
-      sexo: new FormControl(),
-      edad: new FormControl(),
-      correo: new FormControl(),
-      imagen: new FormControl(),
-      contraseña: new FormControl(),
-      contraseña2: new FormControl()
-    });
+      apellido: new FormControl('', [
+        Validators.required,
+      ]),
+      sexo: new FormControl('', [
+        Validators.required,
+      ]),
+      edad: new FormControl('', [
+        Validators.required,
+      ]),
+      email: new FormControl('', [
+        Validators.required,
+        this.emailValidator()
+      ]),
+      imagen: new FormControl(
+        
+      ),
+      password: new FormControl('', [
+        Validators.required,
+        this.passwordValidator(),
+      ]),
+      contraseña2: new FormControl('',
+        Validators.required),
+    }, { validators: this.matchingPasswordsValidator('password', 'contraseña2') });
   }
 
   ngOnInit(): void {
   }
 
-  mostraralerta(){
+
+
+  emailValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const emailValue: string = control.value;
+      const isValid = emailValue.includes('@');
+      return isValid ? null : { requiresAtSymbol: true };
+    };
+  }
+
+  passwordValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const passwordValue: string = control.value;
+      const isValid = passwordValue.length >= 6;
+      return isValid ? null : { passwordTooShort: true };
+    };
+  }
+
+  matchingPasswordsValidator(passwordField: string, confirmPasswordField: string): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const password = control.get(passwordField)?.value;
+      const confirmPassword = control.get(confirmPasswordField)?.value;
+      return password === confirmPassword ? null : { passwordsDoNotMatch: true };
+    };
+  }
+
+
+
+  mostraralerta() {
     alert('¡Formulario enviado!');
   }
 
@@ -42,7 +87,7 @@ export class RegisterComponent implements OnInit{
       .then(response => {
         console.log(response);
         console.log("Éxito al crear usuario");
-        this._router.navigate(['/auth/login']); 
+        this._router.navigate(['/auth/login']);
         const uid = response.user.uid;
         this.userService.guardarDatos(uid, this.formReg.value)
           .then(() => {

@@ -18,7 +18,7 @@ export class UserService {
 
   // Método para registrar un nuevo usuario con email y contraseña
   register(datos: User) {
-    return createUserWithEmailAndPassword(this.auth, datos.correo, datos.contraseña);
+    return createUserWithEmailAndPassword(this.auth, datos.email, datos.password);
   }
 
   // Método para guardar datos del usuario en Firestore

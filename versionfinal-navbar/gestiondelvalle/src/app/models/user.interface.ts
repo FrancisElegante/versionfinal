@@ -4,8 +4,8 @@ export interface User{
     apellido: string;
     sexo: string;
     edad: number;
-    correo: string;
-    contraseña: string;
+    email: string;
+    password: string;
     contraseña2: string;
     rol: string ;
     imagen: string;

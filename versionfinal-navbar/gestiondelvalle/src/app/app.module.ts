@@ -24,6 +24,7 @@ import { NavbarrealComponent } from './modules/compartido/pages/navbarreal/navba
 import { MessagesModule } from 'primeng/messages';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 
 @NgModule({
@@ -49,7 +50,7 @@ import { ToastModule } from 'primeng/toast';
     provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage())
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -4,36 +4,75 @@ import { User } from 'firebase/auth';
 import { Auth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { Validators, FormBuilder, FormGroup, AbstractControl, FormControl } from '@angular/forms';
+
+import { Validators, FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
+import { FormControl, ValidatorFn, ValidationErrors } from '@angular/forms';
+
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { MessageService } from 'primeng/api';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-direccion',
   templateUrl: './direccion.component.html',
-  styleUrls: ['./direccion.component.css']
+  styleUrls: ['./direccion.component.css'],
+  providers: [MessageService]
 })
-export class DireccionComponent implements OnInit{
+export class DireccionComponent implements OnInit {
   direccionForm: FormGroup;
+  messages: Message[] = []; // Inicializa messages como un array vacío
+
+
+
 
   notEmptyValidator(control: AbstractControl) {
     const value = control.value;
     if (value === null || value === undefined || value === '') {
-      return { 'notEmpty': true };
+      return { 'notEmpty': { valid: false } };
     }
     return null;
   }
+  
 
-  constructor(private firestore: Firestore, private auth: Auth,     private router: Router,) {
+  constructor(private firestore: Firestore, private auth: Auth, private router: Router, private messageService: MessageService) {
     this.direccionForm = new FormGroup({
-      direccion: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/), this.notEmptyValidator]),
-      altura: new FormControl('', [Validators.pattern(/^[0-9]+$/), this.notEmptyValidator]),
-      provincia: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/), this.notEmptyValidator]),
-      ciudad: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/), this.notEmptyValidator]),
-      codigoPostal: new FormControl('', [Validators.pattern(/^[0-9]+$/), this.notEmptyValidator])
+      direccion: new FormControl('',
+        [Validators.required,
+        Validators.pattern(/^[a-zA-Z\s]*$/),
+        this.notEmptyValidator]),
+
+      altura: new FormControl('',
+        [Validators.pattern(/^[0-9]+$/),
+        this.notEmptyValidator,
+        Validators.required
+      
+      ]),
+
+      provincia: new FormControl('',
+        [Validators.required,
+        Validators.pattern(/^[a-zA-Z\s]*$/),
+        this.notEmptyValidator]),
+
+      ciudad: new FormControl('',
+        [Validators.required,
+        Validators.pattern(/^[a-zA-Z\s]*$/),
+        this.notEmptyValidator]),
+
+      codigoPostal: new FormControl('',
+        [Validators.pattern(/^[0-9]+$/),
+        this.notEmptyValidator,
+        Validators.required
+      
+      ])
     });
   }
 
   ngOnInit() {
+
+    console.log('Errores de Altura:', this.direccionForm.get('altura')?.errors);
+    console.log('Errores de Código Postal:', this.direccionForm.get('codigoPostal')?.errors);
+
     // Obtener el UID del usuario logueado
     const uid = this.auth.currentUser?.uid;
     if (uid) {
@@ -55,6 +94,14 @@ export class DireccionComponent implements OnInit{
           }
         })
     }
+  }
+
+  showSuccess() {
+    this.messageService.add({ severity: 'success', summary: 'Datos Cambiados!', detail: 'Datos cambiados correctamente' });
+  }
+
+  showError() {
+    this.messageService.add({ severity: 'error', summary: 'Error al cambiar los datos!', detail: 'Error, no se pudieron cambir los datos. Intentelo mas tarde' });
   }
 
   guardarDireccion() {
@@ -82,10 +129,13 @@ export class DireccionComponent implements OnInit{
       setDoc(direccionRef, direccionData)
         .then(() => {
           console.log('Datos de dirección guardados correctamente');
+          this.showSuccess();
+
           this.router.navigateByUrl('/usuario');
 
         })
         .catch((error) => {
+          this.showError();
           console.error('Error al guardar los datos de dirección:', error);
         });
     }

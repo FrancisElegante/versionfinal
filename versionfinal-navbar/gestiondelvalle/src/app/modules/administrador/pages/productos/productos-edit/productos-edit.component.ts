@@ -4,28 +4,43 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductosService } from 'src/app/shared/services/productos.service';
 import { Productos } from 'src/app/models/productos.interface';
 
-
+import { Message } from 'primeng/api';
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-productos-edit',
   templateUrl: './productos-edit.component.html',
-  styleUrls: ['./productos-edit.component.css']
+  styleUrls: ['./productos-edit.component.css'],
+  providers: [MessageService]
+  
 })
 export class ProductosEditComponent implements OnInit{
   form: FormGroup;
   producto: Productos | null = null;
+  messages: Message[] = []; // Inicializa messages como un array vacío
 
   constructor(
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private productosService: ProductosService
+    private productosService: ProductosService,
+    private messageService: MessageService
   ) {
     this.form = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      descripcion: ['', Validators.required],
-      tipo: ['', Validators.required],
-      precio: ['', Validators.required],
-      image: ['', Validators.required]
+      nombre: ['',
+       Validators.required
+      ],
+      descripcion: ['',
+       Validators.required
+      ],
+      tipo: ['',
+       Validators.required
+      ],
+      precio: ['',
+       Validators.required
+      ],
+      image: ['',
+       Validators.required
+      ]
     });
   }
 

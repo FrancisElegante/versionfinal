@@ -1,40 +1,59 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
+import { FormControl, ValidatorFn, ValidationErrors } from '@angular/forms';
+
 import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
 import { User } from 'firebase/auth';
 import { Auth } from '@angular/fire/auth';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { MessageService } from 'primeng/api';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-datos',
   templateUrl: './datos.component.html',
-  styleUrls: ['./datos.component.css']
+  styleUrls: ['./datos.component.css'],
+  providers: [MessageService]
 })
 export class DatosComponent implements OnInit {
 
   userForm: FormGroup;
   currentUser: User | null = null;
   userData: any = {};
+  messages: Message[] = []; // Inicializa messages como un array vacío
 
- notEmptyValidator(control: AbstractControl) {
-  const value = control.value;
-  if (value === null || value === undefined || value === '') {
-    return { 'notEmpty': true };
+
+
+  notEmptyValidator(control: AbstractControl) {
+    const value = control.value;
+    if (value === null || value === undefined || value === '') {
+      return { 'notEmpty': true };
+    }
+    return null;
   }
-  return null;
-}
 
   constructor(
     private firestore: Firestore,
     private auth: Auth,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private messageService: MessageService
   ) {
     this.userForm = this.formBuilder.group({
-      nombre: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/), this.notEmptyValidator]],
-      apellido: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/), this.notEmptyValidator]],
-      imagen: ['', Validators.required]
+      nombre: ['',
+        [Validators.required,
+        Validators.pattern(/^[a-zA-Z\s]*$/),
+        this.notEmptyValidator
+        ]],
+      apellido: ['',
+        [Validators.required,
+        Validators.pattern(/^[a-zA-Z\s]*$/),
+        this.notEmptyValidator
+        ]],
+      imagen: ['',
+       Validators.required
+      ]
     });
   }
 
@@ -59,6 +78,14 @@ export class DatosComponent implements OnInit {
     });
   }
 
+  showSuccess() {
+    this.messageService.add({ severity: 'success', summary: 'Datos Cambiados!', detail: 'Datos cambiados correctamente' });
+  }
+
+  showError() {
+    this.messageService.add({ severity: 'error', summary: 'Error al cambiar los datos!', detail: 'Error, no se pudieron cambir los datos. Intentelo mas tarde' });
+  }
+
   guardarDatos() {
     if (this.currentUser) {
       const uid = this.currentUser.uid;
@@ -67,11 +94,14 @@ export class DatosComponent implements OnInit {
       setDoc(userRef, formData, { merge: true })
         .then(() => {
           console.log('Datos actualizados correctamente');
-          this.router.navigateByUrl('/usuario');
-
+          this.showSuccess();
+          setTimeout(() => {
+            this.router.navigateByUrl('/usuario/usuario');
+          }, 2000);
         })
         .catch((error) => {
           console.error('Error al actualizar los datos:', error);
+          this.showError();
         });
     }
   }

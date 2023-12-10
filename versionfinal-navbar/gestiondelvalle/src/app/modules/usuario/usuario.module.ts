@@ -10,6 +10,11 @@ import { UsuarioRoutingModule } from './usuario-routing.module';
 
 import { FormsModule,ReactiveFormsModule, FormGroup, Validators, FormBuilder } from "@angular/forms";
 
+import { MessagesModule } from 'primeng/messages';
+import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { PasswordModule } from 'primeng/password';
 
 @NgModule({
   declarations: [
@@ -23,13 +28,20 @@ import { FormsModule,ReactiveFormsModule, FormGroup, Validators, FormBuilder } f
     UsuarioRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    MessagesModule,
+    ButtonModule,
+    ToastModule,
+    PasswordModule
   ],
   exports:[
     DatosComponent,
     DireccionComponent,
     UsuarioComponent,
     ContrasenaComponent
+  ],
+  providers:[
+    MessageService
   ]
 })
 export class UsuarioModule { }

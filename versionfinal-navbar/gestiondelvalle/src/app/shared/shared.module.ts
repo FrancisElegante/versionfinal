@@ -18,9 +18,7 @@ import { UsuarioModule } from '../modules/usuario/usuario.module';
   imports: [
     CommonModule,
     SharedRoutingModule,
-    UsuarioRoutingModule,
-    UsuarioModule
-
+    UsuarioRoutingModule
 
   ],
   exports: [

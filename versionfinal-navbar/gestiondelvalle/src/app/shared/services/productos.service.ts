@@ -26,11 +26,13 @@ export class ProductosService {
     return addDoc(productosRef, productos);
   }
 
-  getPlayers(filter = '') {
+  getPlayers(filter = ''): Observable<Productos[]> {
     const productosRef = collection(this.firestore, 'productos');
     let q = query(productosRef);
     if (filter) {
-      q = query(productosRef, where('nombre', '==', filter));
+      // Convertir la primera letra del filtro a mayúscula
+      const capitalizedFilter = filter.charAt(0).toUpperCase() + filter.slice(1);
+      q = query(productosRef, where('nombre', '>=', capitalizedFilter), where('nombre', '<=', capitalizedFilter + '\uf8ff'));
     }
     return collectionData(q) as unknown as Observable<Productos[]>;
   }

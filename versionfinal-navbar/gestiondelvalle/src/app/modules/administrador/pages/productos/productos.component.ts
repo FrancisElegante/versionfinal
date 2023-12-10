@@ -4,6 +4,9 @@ import { debounceTime, Observable } from 'rxjs';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import {switchMap } from 'rxjs/operators';
+
+
 import { ProductosService } from 'src/app/shared/services/productos.service';
 import { Productos } from 'src/app/models/productos.interface';
 
@@ -19,15 +22,10 @@ export class ProductosComponent implements OnInit {
   searcher = new FormControl('');
 
   ngOnInit(): void {
-    this.productos$ = this._productosService.getPlayers();
-    this.searcher.valueChanges.pipe(debounceTime(1000)).subscribe((search) => {
-      // this._playerService.
-      if (search) {
-        console.log(search);
-        this.productos$ = this._productosService.getPlayers(search);
-      } else {
-        this.productos$ = this._productosService.getPlayers();
-      }
+    this.productos$ = this._productosService.getPlayers(); // Sin filtro inicial
+  
+    this.searcher.valueChanges.pipe(debounceTime(500)).subscribe((search) => {
+      this.productos$ = this._productosService.getPlayers(search || '');
     });
   }
 

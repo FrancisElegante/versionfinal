@@ -6,6 +6,7 @@ import { ProductoseleccionadoComponent } from './pages/productoseleccionado/prod
 import { MainRoutingModule } from './main-routing.module';
 import { CarruselComponent } from './pages/carrusel/carrusel.component';
 
+import { FormsModule,ReactiveFormsModule, FormGroup, Validators, FormBuilder } from "@angular/forms";
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { CarruselComponent } from './pages/carrusel/carrusel.component';
   ],
   imports: [
     CommonModule,
-    MainRoutingModule
+    MainRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     CarruselComponent,

@@ -10,6 +10,7 @@ import { User as Userinterface } from "../../../../models/user.interface";
 import { ProductosService } from 'src/app/shared/services/productos.service';
 import { Productos } from "../../../../models/productos.interface";
 
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-main',
@@ -31,7 +32,6 @@ export class MainComponent implements OnInit, AfterViewInit{
   nombreusuario: string = '';
   apellidousuario: string = '';
   user$!: Observable<Userinterface[]>;
-
   inicie: number = 0
 
   user: User | null = null; // Initialize with null
@@ -70,9 +70,17 @@ export class MainComponent implements OnInit, AfterViewInit{
 
   //--------------------------------------------------------------
 
+  
+  searcher = new FormControl('');
+
   ngOnInit(): void {
 
-    
+    this.productos$ = this._productosService.getPlayers(); // Sin filtro inicial
+  
+    this.searcher.valueChanges.pipe(debounceTime(500)).subscribe((search) => {
+      this.productos$ = this._productosService.getPlayers(search || '');
+    });
+
     //this.obtener_productos();
     this.user$ = this.userService.getUser();
 

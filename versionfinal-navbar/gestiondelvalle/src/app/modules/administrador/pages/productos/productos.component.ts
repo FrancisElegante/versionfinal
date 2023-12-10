@@ -9,7 +9,6 @@ import {switchMap } from 'rxjs/operators';
 
 import { ProductosService } from 'src/app/shared/services/productos.service';
 import { Productos } from 'src/app/models/productos.interface';
-
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',

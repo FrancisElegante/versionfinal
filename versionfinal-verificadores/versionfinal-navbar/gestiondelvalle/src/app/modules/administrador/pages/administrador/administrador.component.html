@@ -1,0 +1,51 @@
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  </head>
+  
+  <div class="perfil">
+    <img src="{{fotousuario}}">
+    <h2>{{nombreusuario}} {{apellidousuario}}</h2>
+  </div>
+  
+  <body id="body">
+  
+  
+  
+    <div class="container">
+  
+        <a routerLink="/productos/" href="/administrador/productos">
+
+        <div class="card">
+          <i class="fa-solid fa-boxes-stacked fa-5x" style="color: #776B5D;"></i>
+          <h2 class="card-title">Administrador productos</h2>
+          <p class="card-text">Añade, edita o borra tus productos</p>
+        </div>
+    </a>
+  
+      <a routerLink="/gestionofertas">
+  
+        <div class="card">
+          <i class="fa-solid fa-hand-holding-dollar fa-5x" style="color: #776B5D;"></i>
+          <h2 class="card-title">Administrador de ofertas</h2>
+          <p class="card-text">Añade, quita y visualiza tus ofertas</p>
+        </div>
+      </a>
+      <a routerLink="/gestionrecomendados">
+  
+        <div class="card">
+          <i class="fa-solid fa-binoculars fa-5x"  style="color: #776B5D;"></i>
+          <h2 class="card-title">Administrador de recomendados</h2>
+          <p class="card-text">Establece productos en oferta</p>
+        </div>
+      </a>
+
+      <a routerLink="/usuarios/" href="/administrador/usuarios">
+        <div class="card">
+          <i class="fa-solid fa-users fa-5x" style="color: #776B5D;"></i>
+          <h2 class="card-title">Gestor de usuarios</h2>
+          <p class="card-text">Visualiza tus usuarios</p>
+        </div>
+      </a>
+      
+    </div>
+  </body>

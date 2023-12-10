@@ -1,0 +1,32 @@
+<p-toast></p-toast> 
+<div class="titulo">
+  <h1>Mis Datos</h1>
+</div>
+<div class="body">
+  <form [formGroup]="userForm" (ngSubmit)="guardarDatos()">
+    <div class="form-container">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" formControlName="nombre" id="nombre">
+        <div *ngIf="userForm.get('nombre')?.hasError('required')" class="text-danger">
+          El nombre es requerido.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <input type="text" class="form-control" id="apellido" formControlName="apellido">
+        <div *ngIf="userForm.get('apellido')?.hasError('required')" class="text-danger">
+          El apellido es requerido.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="image">Imagen</label>
+        <input type="text" class="form-control" id="imagen" formControlName="imagen">
+        <div *ngIf="userForm.get('imagen')?.hasError('required')" class="text-danger">
+          El link de la imagen es requerido.
+      </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Guardar cambios</button>
+    </div>
+  </form>
+</div>

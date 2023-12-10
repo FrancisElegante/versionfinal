@@ -1,0 +1,72 @@
+<body>
+    
+    <p-toast></p-toast>
+
+<form [formGroup]="formReg" (ngSubmit)="onSubmit()" class="my-5">
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" formControlName="nombre">
+        <div *ngIf="formReg?.get('nombre')?.hasError('required')" class="text-danger">
+            El nombre es requerido.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Apellido</label>
+        <input type="text" class="form-control" formControlName="apellido">
+        <div *ngIf="formReg?.get('apellido')?.hasError('required')" class="text-danger">
+            El apellido es requerido.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Sexo</label>
+        <input type="text" class="form-control" formControlName="sexo">
+        <div *ngIf="formReg?.get('sexo')?.hasError('required')" class="text-danger">
+            El género es requerido.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Edad</label>
+        <input type="number" class="form-control" formControlName="edad">
+        <div *ngIf="formReg?.get('edad')?.hasError('required')" class="text-danger">
+            La edad es requerida.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Correo</label>
+        <input type="text" class="form-control" formControlName="email">
+        <div *ngIf="formReg?.get('email')?.hasError('requiresAtSymbol')" class="text-danger">
+            Se requiere al menos un símbolo "@" en el correo electrónico.
+        </div>
+        <div *ngIf="formReg?.get('email')?.hasError('required')" class="text-danger">
+            El correo electrónico es requerido.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Contraseña</label>
+        <p-password [(ngModel)]="value" formControlName="password" [toggleMask]="true"></p-password>
+        <div *ngIf="formReg?.get('password')?.hasError('passwordTooShort')" class="text-danger">
+            La contraseña debe tener 6 o más caracteres.
+        </div>
+        <div *ngIf="formReg?.get('password')?.hasError('required')" class="text-danger">
+            La contraseña es requerida.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Vuelva a ingresar su contraseña</label>
+        <input type="password" class="form-control" formControlName="contraseña2">
+        <div *ngIf="formReg?.hasError('passwordsDoNotMatch')" class="text-danger">
+            Las contraseñas no coinciden.
+        </div>
+        <div *ngIf="formReg?.get('contraseña2')?.hasError('required')" class="text-danger">
+            Volver a ingresar la contraseña es requerido.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">URL de su imagen de perfil</label>
+        <input type="text" class="form-control" formControlName="imagen">
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!formReg.valid">Enviar</button>
+    <a routerLink="/auth/login" class="btn btn-link">¿Ya tienes cuenta? Inicia sesión</a>
+</form>
+</body>

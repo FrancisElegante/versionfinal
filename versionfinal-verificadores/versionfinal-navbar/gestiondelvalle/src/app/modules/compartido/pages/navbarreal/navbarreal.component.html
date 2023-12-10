@@ -1,0 +1,28 @@
+<body>
+    <header>
+      <nav>
+        <div class="logo">
+          <a href="#">GDV</a>
+        </div>
+        <ul>
+          <li><a routerLink="/main" class="nav-link" href="#">Mercado</a></li>
+          <li *ngIf="login && (rol === 'comprador' || rol === 'admin')">
+            <a routerLink="/usuario/usuario" class="nav-link" href="#">Mi Usuario</a>
+          </li>
+          <li *ngIf="login && (rol === 'comprador' || rol === 'admin')">
+            <a routerLink="/main/carrito" class="nav-link" href="#">Carrito</a>
+          </li>
+          <li *ngIf="login && rol === 'admin'">
+            <a routerLink="/administrador/administrador" class="nav-link" href="#">Gestion</a>
+          </li>
+        </ul>
+        <div class="button">
+            <a routerLink="/auth/login" class="nav-link" href="#">
+          <button *ngIf="!login">Iniciar Sesion</button>
+        </a>
+          <button *ngIf="login" (click)="cerrarSesion()" >Cerrar Sesion</button>
+        </div>
+      </nav>
+    </header>
+</body>
+  

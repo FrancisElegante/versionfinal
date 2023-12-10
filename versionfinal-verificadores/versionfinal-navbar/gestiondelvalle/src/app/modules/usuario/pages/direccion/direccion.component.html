@@ -1,0 +1,55 @@
+<p-toast></p-toast> 
+
+
+<div class="titulo">
+    <h1>Mis Datos de Dirección</h1>
+    </div>
+    <div class="body">
+      <form [formGroup]="direccionForm" (ngSubmit)="guardarDireccion()">
+        <div class="form-container">
+          <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="text" class="form-control" formControlName="direccion" id="direccion">
+
+            <div *ngIf="direccionForm.get('direccion')?.hasError('required')" class="text-danger">
+              La direccion es requerida.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="altura">Altura</label>
+            <input type="text" class="form-control" id="altura" formControlName="altura">
+            <div *ngIf="direccionForm.get('altura')?.hasError('required')" class="text-danger">
+              La altura es requerida.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="provincia">Provincia</label>
+            <input type="text" class="form-control" id="provincia" formControlName="provincia">
+            <div *ngIf="direccionForm.get('provincia')?.hasError('required')" class="text-danger">
+              La provincia es requerida.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="ciudad">Ciudad</label>
+            <input type="text" class="form-control" id="ciudad" formControlName="ciudad">
+            <div *ngIf="direccionForm.get('ciudad')?.hasError('required')" class="text-danger">
+              La ciudad es requerida.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="codigoPostal">Codigo Postal</label>
+            <input type="text" class="form-control" id="codigoPostal" formControlName="codigoPostal">
+            <div *ngIf="direccionForm.get('codigoPostal')?.hasError('required')" class="text-danger">
+              El codigo postal es requerido.
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" [disabled]="!direccionForm.valid">Guardar cambios</button>
+        </div>
+      </form>
+    </div>
+

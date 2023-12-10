@@ -1,0 +1,34 @@
+<p-toast></p-toast>
+
+<div class="titulo">
+    <h1>Actualizar Contraseña</h1>
+    </div>
+    <div class="body">
+      <form [formGroup]="seguridadForm" (ngSubmit)="actualizarContrasena()">
+        <div class="form-container">
+          <div class="form-group">
+            <label for="password">Contraseña nueva:</label>
+            <input type="text" class="form-control" formControlName="password" id="password">
+            <div *ngIf="seguridadForm?.get('password')?.hasError('passwordTooShort')" class="text-danger">
+              La contraseña debe tener 6 o más caracteres.
+          </div>
+          <div *ngIf="seguridadForm?.get('password')?.hasError('required')" class="text-danger">
+              La contraseña es requerida.
+          </div>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Repita la contraseña</label>
+            <input type="text" class="form-control" id="confirmPassword" formControlName="confirmPassword">
+            <div *ngIf="seguridadForm?.hasError('passwordsDoNotMatch')" class="text-danger">
+              Las contraseñas no coinciden.
+          </div>
+          <div *ngIf="seguridadForm?.get('confirmPassword')?.hasError('required')" class="text-danger">
+              Volver a ingresar la contraseña es requerido.
+          </div>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!seguridadForm.valid">Guardar cambios</button>
+        </div>
+      </form>
+    </div>
+
+      

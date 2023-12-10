@@ -1,0 +1,43 @@
+<body>
+  <p-toast></p-toast>
+  <div class="container">
+    <h1>Login</h1>
+    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+      <div class="user-box">
+        <label>Email</label>
+        <input type="text" class="form-control" formControlName="email">
+        <!-- Verificación para asegurarse de que formLogin no sea null -->
+        <div *ngIf="formLogin?.get('email')?.hasError('requiresAtSymbol')">
+          Se requiere al menos un símbolo "@" en el correo electrónico.
+        </div>
+        <!-- Otras verificaciones para mensajes de error predeterminados -->
+        <div *ngIf="formLogin?.get('email')?.hasError('required')">
+          El correo electrónico es requerido.
+        </div>
+      </div>
+      <div class="user-box">
+        <label>Contraseña</label>
+        <input type="password" class="form-control" formControlName="password">
+        <!-- Verificación para asegurarse de que formLogin no sea null -->
+        <div *ngIf="formLogin?.get('password')?.hasError('passwordTooShort')">
+          La contraseña debe tener 6 o mas caracteres.
+        </div>
+        <!-- Otras verificaciones para mensajes de error predeterminados -->
+        <div *ngIf="formLogin?.get('password')?.hasError('required')">
+          La contraseña es requerida.
+        </div>
+      </div>
+      <button type="submit" class="neon-button" [disabled]="!formLogin.valid">Iniciar Sesión</button>
+
+      <button class="neon-button" type="button" (click)="redireccion()">
+        <a routerLink="/auth/registro">Registrarse</a>
+      </button>
+      
+
+      <button class="neon-button" (click)="onClick()">
+        <i class="fab fa-google"></i>
+        Login With Google
+      </button>
+    </form>
+  </div>
+</body>

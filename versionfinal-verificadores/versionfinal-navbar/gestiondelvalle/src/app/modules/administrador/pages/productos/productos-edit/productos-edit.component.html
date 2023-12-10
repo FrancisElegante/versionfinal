@@ -1,0 +1,44 @@
+<p-toast></p-toast>
+<h1>Editar Producto</h1>
+<div class="body">
+  <form [formGroup]="form" (ngSubmit)="updateProducto()">
+    <div class="form-container">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" formControlName="nombre">
+        <div *ngIf="form?.get('nombre')?.hasError('required')" class="text-danger">
+          El nombre es requerido.
+      </div>
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripción</label>
+        <input type="text" class="form-control" id="descripcion" formControlName="descripcion">
+        <div *ngIf="form?.get('descripcion')?.hasError('required')" class="text-danger">
+          La descripcion es requerida.
+      </div>
+      </div>
+      <div class="form-group">
+        <label for="tipo">Tipo</label>
+        <input type="text" class="form-control" id="tipo" formControlName="tipo">
+        <div *ngIf="form?.get('tipo')?.hasError('required')" class="text-danger">
+          El tipo es requerido.
+      </div>
+      </div>
+      <div class="form-group">
+        <label for="precio">Precio</label>
+        <input type="number" class="form-control" id="precio" formControlName="precio">
+        <div *ngIf="form?.get('precio')?.hasError('required')" class="text-danger">
+          El precio es requerido.
+      </div>
+      </div>
+      <div class="form-group">
+        <label for="image">Imagen</label>
+        <input type="text" class="form-control" id="image" formControlName="image">
+        <div *ngIf="form?.get('image')?.hasError('required')" class="text-danger">
+          La imagen es requerida.
+      </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Guardar cambios</button>
+    </div>
+  </form>
+</div>

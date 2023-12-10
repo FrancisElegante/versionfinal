@@ -13,13 +13,15 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { PasswordModule } from 'primeng/password';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
     AdministradorComponent,
     ProductosComponent,
     ProductosAddComponent,
-    ProductosEditComponent
+    ProductosEditComponent,
+    UsuariosComponent
   ],
   imports: [
     CommonModule,

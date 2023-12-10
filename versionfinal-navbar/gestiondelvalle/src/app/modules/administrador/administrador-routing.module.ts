@@ -5,7 +5,7 @@ import { AdministradorComponent } from './pages/administrador/administrador.comp
 import { ProductosComponent } from './pages/productos/productos.component';
 import { ProductosAddComponent } from './pages/productos/productos-add/productos-add.component';
 import { ProductosEditComponent } from './pages/productos/productos-edit/productos-edit.component';
-
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 const routes: Routes = [
 
 
@@ -13,6 +13,7 @@ const routes: Routes = [
       {path: 'productos', component: ProductosComponent},
       {path: 'productos-add', component: ProductosAddComponent},
       {path: 'productos-edit', component: ProductosEditComponent},
+      {path: 'usuarios', component: UsuariosComponent}
 
 
 ]

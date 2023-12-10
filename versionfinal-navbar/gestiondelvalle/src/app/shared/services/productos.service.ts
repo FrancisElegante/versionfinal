@@ -9,6 +9,8 @@ import {
 import { getDocs } from '@firebase/firestore';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Productos } from '../../models/productos.interface';
+import { User } from '../../models/user.interface';
+
 import {  Firestore, collection, addDoc, collectionData, doc, deleteDoc } from '@angular/fire/firestore';
 
 @Injectable({
@@ -17,13 +19,28 @@ import {  Firestore, collection, addDoc, collectionData, doc, deleteDoc } from '
 export class ProductosService {
 
   private productosSource = new BehaviorSubject<any | null>(null);
+  private usuariosSource = new BehaviorSubject<any | null>(null);
+
+
   productos$ = this.productosSource.asObservable();
+  usuarios$ = this.usuariosSource.asObservable();
 
   constructor(private firestore: Firestore) {}
 
   addPlayer(productos: Productos) {
     const productosRef = collection(this.firestore, 'productos');
     return addDoc(productosRef, productos);
+  }
+
+  getUsuarios(filter = ''): Observable<User[]> {
+    const productosRef = collection(this.firestore, 'usuarios');
+    let q = query(productosRef);
+    if (filter) {
+      // Convertir la primera letra del filtro a mayúscula
+      const capitalizedFilter = filter.charAt(0).toUpperCase() + filter.slice(1);
+      q = query(productosRef, where('nombre', '>=', capitalizedFilter), where('nombre', '<=', capitalizedFilter + '\uf8ff'));
+    }
+    return collectionData(q) as unknown as Observable<User[]>;
   }
 
   getPlayers(filter = ''): Observable<Productos[]> {

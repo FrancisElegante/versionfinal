@@ -1,0 +1,42 @@
+
+<input
+  [formControl]="searcher"
+  type="text"
+  placeholder="Buscar producto por nombre"
+  class="form-control mt-2"
+/>
+
+<div class="body">
+<div class="productos" *ngIf="usuarios$ | async as usuarios">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">apellido</th>
+        <th scope="col">sexo</th>
+        <th scope="col">rol</th>
+        <th scope="col">Imagen</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuarios of usuarios; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ usuarios.nombre }}</td>
+        <td>{{ usuarios.apellido }}</td>
+        <td>{{ usuarios.sexo }}</td>
+        <td>{{ usuarios.rol }}</td>
+        <td>
+          <img [src]="usuarios.imagen" alt="No posee foto de perfil"></td>
+        <td>
+          <button class="btn btn-primary" >Editar</button>
+          <button class="btn btn-danger ms-2" >Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-primary" (click)="_router.navigate(['/administrador/productos-add'])">Agregar Producto</button>
+
+</div>
+</div>

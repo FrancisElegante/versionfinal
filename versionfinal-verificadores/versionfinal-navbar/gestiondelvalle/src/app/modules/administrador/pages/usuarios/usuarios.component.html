@@ -30,7 +30,7 @@
         <td>
           <img [src]="usuarios.imagen" alt="No posee foto de perfil"></td>
         <td>
-          <button class="btn btn-primary" >Enviar Mensaje</button>
+          <button class="btn btn-primary" (click)="enviarMensaje(usuarios)">Enviar Mensaje</button>
           <button class="btn btn-danger ms-2" >Eliminar</button>
         </td>
       </tr>

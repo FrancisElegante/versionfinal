@@ -14,6 +14,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { PasswordModule } from 'primeng/password';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { MensajesComponent } from './pages/usuarios/mensajes/mensajes.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UsuariosComponent } from './pages/usuarios/usuarios.component';
     ProductosComponent,
     ProductosAddComponent,
     ProductosEditComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    MensajesComponent
   ],
   imports: [
     CommonModule,

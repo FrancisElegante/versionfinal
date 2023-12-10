@@ -9,6 +9,7 @@ import {switchMap } from 'rxjs/operators';
 
 import { ProductosService } from 'src/app/shared/services/productos.service';
 import { Productos } from 'src/app/models/productos.interface';
+import { MensajeriaService } from 'src/app/shared/services/mensajeria.service';
 
 import { User } from 'src/app/models/user.interface';
 
@@ -23,7 +24,8 @@ export class UsuariosComponent {
   _productosService = inject(ProductosService);
   _router = inject(Router);
   searcher = new FormControl('');
-  
+  _mensajeriaService = inject(MensajeriaService);
+
   usuarios$!: Observable<User[]>;
 
   ngOnInit(): void {
@@ -34,6 +36,14 @@ export class UsuariosComponent {
     });
   }
 
+  enviarMensaje(usuario: User) {
+    // Aquí debes navegar a la página del chat o realizar las acciones necesarias para iniciar una conversación con el usuario
+    // Puedes utilizar this._router.navigate(...) o realizar otras acciones según tu lógica de aplicación
+    // Además, puedes llamar a una función del servicio de mensajería para iniciar la conversación
+    // Por ejemplo:
+    const conversationId = usuario.uid; // Puedes usar el ID del usuario como ID de la conversación
+    this._mensajeriaService.iniciarConversacion(conversationId);
+  }
   
 }
 

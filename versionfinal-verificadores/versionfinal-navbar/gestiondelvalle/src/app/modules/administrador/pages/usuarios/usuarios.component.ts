@@ -36,13 +36,13 @@ export class UsuariosComponent {
     });
   }
 
+
+  
   enviarMensaje(usuario: User) {
-    // Aquí debes navegar a la página del chat o realizar las acciones necesarias para iniciar una conversación con el usuario
-    // Puedes utilizar this._router.navigate(...) o realizar otras acciones según tu lógica de aplicación
-    // Además, puedes llamar a una función del servicio de mensajería para iniciar la conversación
-    // Por ejemplo:
-    const conversationId = usuario.uid; // Puedes usar el ID del usuario como ID de la conversación
+    const conversationId = usuario.uid;
     this._mensajeriaService.iniciarConversacion(conversationId);
+    this._router.navigate(['/administrador/chat', conversationId]);
+    this._mensajeriaService.setReceiverId(conversationId); // Asegúrate de tener un método en el servicio para establecer el receiverId
   }
   
 }

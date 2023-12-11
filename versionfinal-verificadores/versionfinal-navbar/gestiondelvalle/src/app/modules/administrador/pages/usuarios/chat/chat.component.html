@@ -1,0 +1,17 @@
+<!-- chat.component.html -->
+<div *ngIf="conversationId" class="chat-container">
+  <h2>Conversación ID: {{ conversationId }}</h2>
+
+  <div class="message-container" *ngFor="let message of messages">
+    <div class="message" [ngClass]="{'user-message': message.senderId === user?.uid, 'admin-message': message.senderId === 'f8NY7Pje62hOdmsElVBHCdv86Iw2'}">
+      <div class="message-sender">{{ message.senderId === user?.uid ? 'Administrador' : 'Usuario' }}</div>
+      <div class="message-text">{{ message.text }}</div>
+      <div class="message-timestamp">{{ timestampToDate(message.timestamp) | date:'medium' }}</div>
+    </div>
+  </div>
+
+  <div class="input-container">
+    <input [(ngModel)]="newMessage" placeholder="Escribe un mensaje..." />
+    <button (click)="enviarMensaje()">Enviar</button>
+  </div>
+</div>

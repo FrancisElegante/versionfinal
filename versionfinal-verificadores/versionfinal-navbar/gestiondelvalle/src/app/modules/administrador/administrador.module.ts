@@ -15,6 +15,7 @@ import { MessageService } from 'primeng/api';
 import { PasswordModule } from 'primeng/password';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { MensajesComponent } from './pages/usuarios/mensajes/mensajes.component';
+import { ChatComponent } from './pages/usuarios/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MensajesComponent } from './pages/usuarios/mensajes/mensajes.component'
     ProductosAddComponent,
     ProductosEditComponent,
     UsuariosComponent,
-    MensajesComponent
+    MensajesComponent,
+    ChatComponent
   ],
   imports: [
     CommonModule,

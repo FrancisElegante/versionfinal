@@ -15,13 +15,15 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { PasswordModule } from 'primeng/password';
+import { ChatadminComponent } from './pages/chatadmin/chatadmin.component';
 
 @NgModule({
   declarations: [
     ContrasenaComponent,
     DatosComponent,
     DireccionComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    ChatadminComponent
   ],
   imports: [
     CommonModule,

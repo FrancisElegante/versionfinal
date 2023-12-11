@@ -12,6 +12,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 
 import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, setDoc, getDoc, DocumentReference } from '@angular/fire/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MensajeriaService } from 'src/app/shared/services/mensajeria.service';
 
 @Component({
   selector: 'app-usuario',
@@ -27,7 +28,7 @@ export class UsuarioComponent implements OnInit{
   fotousuario: string = '';
   _router = inject(Router);
 
-  constructor( private elementRef: ElementRef, private auth: Auth, private userService: UserService, private firestore: Firestore) { 
+  constructor( private elementRef: ElementRef, private auth: Auth, private userService: UserService, private firestore: Firestore, private _mensajeriaService:MensajeriaService) { 
     this.userService.isLoggedIn().subscribe((loggedIn: boolean) => {
       if (loggedIn) {
         console.log('El usuario está logueado');
@@ -81,4 +82,14 @@ export class UsuarioComponent implements OnInit{
     this._router.navigateByUrl('/misdatos', { state: { user } });
   }
 
+
+
+  enviarMensaje() {
+    const user = this.auth.currentUser;
+    const conversationId = user!.uid;
+    console.log(conversationId)
+    this._mensajeriaService.iniciarConversacion(conversationId);
+    this._router.navigate(['/usuario/chatadmin', conversationId]);
+    this._mensajeriaService.setReceiverId(conversationId); // Asegúrate de tener un método en el servicio para establecer el receiverId
+  }
 }
